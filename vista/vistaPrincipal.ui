@@ -109,7 +109,7 @@ font: 75 10pt &quot;MS Shell Dlg 2&quot;;
     <property name="geometry">
      <rect>
       <x>120</x>
-      <y>400</y>
+      <y>430</y>
       <width>231</width>
       <height>31</height>
      </rect>
@@ -126,7 +126,7 @@ color: rgb(255, 255, 255);</string>
     <property name="geometry">
      <rect>
       <x>420</x>
-      <y>400</y>
+      <y>430</y>
       <width>231</width>
       <height>31</height>
      </rect>
@@ -199,6 +199,19 @@ color: rgb(255, 255, 255);</string>
     <property name="styleSheet">
      <string notr="true">font: 10pt &quot;MS Shell Dlg 2&quot;;
 color: rgb(255, 255, 255);</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="score">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>340</y>
+      <width>571</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
     </property>
    </widget>
   </widget>

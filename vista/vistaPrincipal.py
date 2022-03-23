@@ -47,12 +47,12 @@ class Ui_MainWindow(object):
         self.radioUmbral.setAutoExclusive(False)
         self.radioUmbral.setObjectName("radioUmbral")
         self.botonPrecision = QtWidgets.QPushButton(self.centralwidget)
-        self.botonPrecision.setGeometry(QtCore.QRect(120, 400, 231, 31))
+        self.botonPrecision.setGeometry(QtCore.QRect(120, 430, 231, 31))
         self.botonPrecision.setStyleSheet("font: 75 12pt \"MS Shell Dlg 2\";\n"
 "color: rgb(255, 255, 255);")
         self.botonPrecision.setObjectName("botonPrecision")
         self.botonPerdida = QtWidgets.QPushButton(self.centralwidget)
-        self.botonPerdida.setGeometry(QtCore.QRect(420, 400, 231, 31))
+        self.botonPerdida.setGeometry(QtCore.QRect(420, 430, 231, 31))
         self.botonPerdida.setStyleSheet("font: 75 12pt \"MS Shell Dlg 2\";\n"
 "color: rgb(255, 255, 255);")
         self.botonPerdida.setObjectName("botonPerdida")
@@ -76,6 +76,10 @@ class Ui_MainWindow(object):
         self.inputGeneraciones.setStyleSheet("font: 10pt \"MS Shell Dlg 2\";\n"
 "color: rgb(255, 255, 255);")
         self.inputGeneraciones.setObjectName("inputGeneraciones")
+        self.score = QtWidgets.QLabel(self.centralwidget)
+        self.score.setGeometry(QtCore.QRect(100, 340, 571, 41))
+        self.score.setText("")
+        self.score.setObjectName("score")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 772, 26))

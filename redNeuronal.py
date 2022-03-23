@@ -1,5 +1,4 @@
 from tensorflow import keras
-
 from configuracion import leerArchivo
 import matplotlib.pyplot as plt
 from sklearn.preprocessing import LabelEncoder
@@ -24,22 +23,30 @@ def obtencionVariables(df): #obtenemos el df filtrado
     y = lb.fit_transform(y)
     return {"x":x,"y":y}
 
-def EscaladaDatos(datos):
+def divisionDataset(datos):
     xtrain, xtest, ytrain, ytest = train_test_split(datos['x'], datos['y'], test_size=0.3, random_state=40)
-    sc = StandardScaler()
-    xtrain = sc.fit_transform(xtrain)
-    xtest = sc.transform(xtest)
     return {"xtrain":xtrain,"xtest":xtest,"ytrain":ytrain,"ytest":ytest}
 
-def entrenamientoNeuronal(entrenamiento,eta,generaciones):
+def EscaladaDatos(datos):
+    division = divisionDataset(datos)
+    sc = StandardScaler()
+    division['xtrain'] = sc.fit_transform(division['xtrain'])
+    division['xtest'] = sc.transform(division['xtest'])
+    return division
+
+def creacionNeurona(eta):
     classifier = Sequential()
     classifier.add(Dense(units=9, kernel_initializer='he_uniform', activation='relu', input_dim=30))
     classifier.add(Dense(units=9, kernel_initializer='he_uniform', activation='relu'))
     classifier.add(Dense(units=1, kernel_initializer='glorot_uniform', activation='sigmoid'))
     classifier.summary()
     classifier.compile(keras.optimizers.Adam(learning_rate=eta), loss='binary_crossentropy', metrics=['accuracy'])
-    model = classifier.fit(entrenamiento['xtrain'], entrenamiento['ytrain'], batch_size=100, epochs=generaciones)
-    y_pred = classifier.predict(entrenamiento['xtest'])
+    return classifier
+
+def entrenamientoNeuronal(entrenamiento,eta,generaciones):
+    clasificacion = creacionNeurona(eta)
+    model = clasificacion.fit(entrenamiento['xtrain'], entrenamiento['ytrain'], batch_size=100, epochs=generaciones)
+    y_pred = clasificacion.predict(entrenamiento['xtest'])
     y_pred = (y_pred > 0.5)
     return model
 
