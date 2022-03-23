@@ -78,6 +78,8 @@ class Ui_MainWindow(object):
         self.inputGeneraciones.setObjectName("inputGeneraciones")
         self.score = QtWidgets.QLabel(self.centralwidget)
         self.score.setGeometry(QtCore.QRect(100, 340, 571, 41))
+        self.score.setStyleSheet("font: 75 10pt \"MS Shell Dlg 2\";\n"
+"color: rgb(255, 255, 255);")
         self.score.setText("")
         self.score.setObjectName("score")
         MainWindow.setCentralWidget(self.centralwidget)

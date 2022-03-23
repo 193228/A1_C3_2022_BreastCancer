@@ -6,7 +6,7 @@ def precisionPerdida(ventana):
     df = filtradoDatos("breast_cancer.csv")
     variables = obtencionVariables(df)
     datos = EscaladaDatos(variables)
-    model = entrenamientoNeuronal(datos,inputs['eta'],inputs['generaciones'])
+    model = entrenamientoNeuronal(datos,inputs['eta'],inputs['generaciones'],ventana)
     graficaPrecision(model)
 
 def historialPerdida(ventana):
@@ -14,5 +14,5 @@ def historialPerdida(ventana):
     df = filtradoDatos("breast_cancer.csv")
     variables = obtencionVariables(df)
     datos = EscaladaDatos(variables)
-    model = entrenamientoNeuronal(datos,inputs['eta'],inputs['generaciones'])
+    model = entrenamientoNeuronal(datos,inputs['eta'],inputs['generaciones'],ventana)
     graficaPerdida(model)

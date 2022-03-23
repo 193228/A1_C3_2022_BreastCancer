@@ -210,6 +210,10 @@ color: rgb(255, 255, 255);</string>
       <height>41</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">font: 75 10pt &quot;MS Shell Dlg 2&quot;;
+color: rgb(255, 255, 255);</string>
+    </property>
     <property name="text">
      <string/>
     </property>

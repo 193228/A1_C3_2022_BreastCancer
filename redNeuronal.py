@@ -1,3 +1,4 @@
+from sklearn.metrics import accuracy_score
 from tensorflow import keras
 from configuracion import leerArchivo
 import matplotlib.pyplot as plt
@@ -43,11 +44,14 @@ def creacionNeurona(eta):
     classifier.compile(keras.optimizers.Adam(learning_rate=eta), loss='binary_crossentropy', metrics=['accuracy'])
     return classifier
 
-def entrenamientoNeuronal(entrenamiento,eta,generaciones):
+def entrenamientoNeuronal(entrenamiento,eta,generaciones,ventana):
     clasificacion = creacionNeurona(eta)
     model = clasificacion.fit(entrenamiento['xtrain'], entrenamiento['ytrain'], batch_size=100, epochs=generaciones)
     y_pred = clasificacion.predict(entrenamiento['xtest'])
     y_pred = (y_pred > 0.5)
+    score = accuracy_score(entrenamiento['ytest'], y_pred)
+    ventana.score.setText("La precision final del modelo es: "+str(score))
+    #ventana.score.setText(score)
     return model
 
 def graficaPrecision(model):
